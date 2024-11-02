@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conversion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Include PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+</head>
+<body>
+    <section>
+        <h2>Convert Temperature</h2>
+        <label for="temp">Enter Temperature in Celsius:</label>
+        <input type="number" id="temp" name="temp" placeholder="Enter temperature">
+        <button id="convert-btn">Convert to Fahrenheit</button>
+        <p id="output"></p>
+    </section>
+
+    <!-- PyScript Code -->
+    <py-script>
+        from js import document
+
+        def convert_temperature(event=None):
+            try:
+                # ดึงค่าจาก input element โดยตรงผ่าน document
+                temp_input = float(document.getElementById("temp").value)
+                # คำนวณค่าใน Fahrenheit
+                fahrenheit = (temp_input * 9/5) + 32
+                # แสดงผลลัพธ์ใน HTML
+                document.getElementById("output").innerHTML = f"Temperature in Fahrenheit: {fahrenheit:.2f}°F"
+            except ValueError:
+                document.getElementById("output").innerHTML = "Please enter a valid number."
+
+        document.getElementById("convert-btn").addEventListener("click", convert_temperature)
+    </py-script>
+</body>
+</html>
