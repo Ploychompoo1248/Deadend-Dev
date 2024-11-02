@@ -39,6 +39,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 <body>
     <nav>
@@ -54,8 +55,8 @@
         <div style="display: flex;">
             <div class="tabb" style="border: #D9D9D9 solid 5px; height: 870px; width: 210px; margin-top: 10px; margin-left: 15px;">
                 <div class="tabb" style="border: #D9D9D9 solid 5px; height: 45px; width: 1430px; margin-left: auto; margin-right: auto; justify-content: space-around; flex-direction: column; ">
-                    <button onclick="main(value,kilometers,to_unit)" style="margin: auto; margin-top: 10px;"><div >เซนติเมตร</div></button>
-                    <button onclick="" style="margin: auto;margin-top: 10px;"><div>เมตร</div></button>
+                    <button pys-onClick="set_cen()" style="margin: auto; margin-top: 10px;"><div >เซนติเมตร</div></button>
+                    <button onclick="set_kilo()" style="margin: auto;margin-top: 10px;"><div>เมตร</div></button>
                     <button onclick="" style="margin: auto;margin-top: 10px;"><div>กิโลเมตร</div></button>
                     <button onclick="" style="margin: auto;margin-top: 10px;"><div>ไมล์</div></button>
                     <button onclick="" style="margin: auto;margin-top: 10px;"><div>ฟุต</div></button>
@@ -64,20 +65,19 @@
             </div>
             <div class="tabb1" style="border: #ffffff solid 5px; height: 870px; width: 1205px; margin-top: 10px; margin-left: 15px; display: flex;">
                 <a style="align-items: center; flex-direction: column; display: flex;">
-                    <label style="font-size: 55px; margin-top: 250px;">ค่าที่ต้องการแปลง</label>
+                    <label style="font-size: 55px; margin-top: 100px;">ค่าที่ต้องการแปลง</label>
                     <label style="align-items: center; margin-top: 10px;">
-                        <input placeholder="พิมพ์ที่นี่..." type="text" id = "" style="margin: 10px; font-size: medium;">
+                        <input placeholder="พิมพ์ที่นี่..." type="text" id = "inputValue" style="margin: 10px; font-size: medium;">
                         <button class="enter" onclick="" style="font-size: medium">=</button>
                     </label>
-                    <label style="font-size: 55px; margin-top: 100px;">ค่าที่แปลงแล้ว</label>
+                    <label style="font-size: 55px; margin-top: 50px;">ค่าที่แปลงแล้ว</label>
                     <label style="align-items: center; margin-top: 10px;">
-                        <output>...</output>
+                        <p id="output"></p>
                     </label>
                 </a>
             </div>
         </div>
-        <script src="convert_length.py">
-        </script>
     </nav>
+    <py-script src="convert_length.py"></py-script>
 </body>
 </html>
