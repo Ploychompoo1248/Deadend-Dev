@@ -49,3 +49,16 @@ button
     display: flex;
     
 }
+.tabb1{
+    border-radius: 7px;
+    background-color: #ffffff;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+}
+.enter{
+    width: 40px;
+    height: 40px;
+    background-color: #ee6b6e;
+    border-radius: 50%;
+}
