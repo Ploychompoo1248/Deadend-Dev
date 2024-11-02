@@ -54,12 +54,12 @@
         <div style="display: flex;">
             <div class="tabb" style="border: #D9D9D9 solid 5px; height: 870px; width: 210px; margin-top: 10px; margin-left: 15px;">
                 <div class="tabb" style="border: #D9D9D9 solid 5px; height: 45px; width: 1430px; margin-left: auto; margin-right: auto; justify-content: space-around; flex-direction: column; ">
-                    <button style="margin-left: 20px;"><div >เซนติเมตร</div></button>
-                    <button style="margin-left: 20px;"><div>เมตร</div></button>
-                    <button style="margin-left: 20px;"><div>กิโลเมตร</div></button>
-                    <button style="margin-left: 20px;"><div>ไมล์</div></button>
-                    <button style="margin-left: 20px;"><div>ฟุต</div></button>
-                    <button style="margin-left: 20px;"><div>นิ้ว</div></button>
+                    <button onclick="main(value,kilometers,to_unit)" style="margin: auto; margin-top: 10px;"><div >เซนติเมตร</div></button>
+                    <button onclick="" style="margin: auto;margin-top: 10px;"><div>เมตร</div></button>
+                    <button onclick="" style="margin: auto;margin-top: 10px;"><div>กิโลเมตร</div></button>
+                    <button onclick="" style="margin: auto;margin-top: 10px;"><div>ไมล์</div></button>
+                    <button onclick="" style="margin: auto;margin-top: 10px;"><div>ฟุต</div></button>
+                    <button onclick="" style="margin: auto;margin-top: 10px;"><div>นิ้ว</div></button>
                 </div>
             </div>
             <div class="tabb1" style="border: #ffffff solid 5px; height: 870px; width: 1205px; margin-top: 10px; margin-left: 15px; display: flex;">
@@ -69,14 +69,15 @@
                         <input placeholder="พิมพ์ที่นี่..." type="text" id = "" style="margin: 10px; font-size: medium;">
                         <button class="enter" onclick="" style="font-size: medium">=</button>
                     </label>
-                    <label style="font-size: 55px; margin-top: 250px;">ค่าที่แปลงแล้ว</label>
+                    <label style="font-size: 55px; margin-top: 100px;">ค่าที่แปลงแล้ว</label>
                     <label style="align-items: center; margin-top: 10px;">
                         <output>...</output>
                     </label>
                 </a>
             </div>
         </div>
-        <script src="convert_length.py"></script>
+        <script src="convert_length.py">
+        </script>
     </nav>
 </body>
 </html>
