@@ -28,11 +28,8 @@
 
         def convert_temperature(event=None):
             try:
-                # ดึงค่าจาก input element โดยตรงผ่าน document
                 temp_input = float(document.getElementById("temp").value)
-                # คำนวณค่าใน Fahrenheit
                 fahrenheit = (temp_input * 9/5) + 32
-                # แสดงผลลัพธ์ใน HTML
                 document.getElementById("output").innerHTML = f"Temperature in Fahrenheit: {fahrenheit:.2f}°F"
             except ValueError:
                 document.getElementById("output").innerHTML = "Please enter a valid number."
