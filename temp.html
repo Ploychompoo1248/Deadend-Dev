@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body{
+            font-family: "Kanit", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+        button {
+            font-family: "Kanit", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            height: 40px;
+            width: 186px;
+            border: 0cm;
+            border-radius: 5px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            font-size: medium;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+        button:hover {
+            background-color: #638475;
+            color: rgb(255, 255, 255);
+        }
+        input {
+            font-family: "Kanit", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <nav>
+    <div style="display: flex;">
+    <div class="tabb" style="border: #D9D9D9 solid 5px; height: 870px; width: 210px; margin-top: 10px; margin-left: 15px;">
+        <div class="tabb" style="border: #D9D9D9 solid 5px; height: 45px; width: 1430px; margin-left: auto; margin-right: auto; flex-direction: column; justify-content: space-between;">
+            <button style="margin-left: 20px;"><div >เซนติเมตร</div></button>
+            <button style="margin-left: 20px;"><div>เมตร</div></button>
+            <button style="margin-left: 20px;"><div>กิโลเมตร</div></button>
+            <button style="margin-left: 20px;"><div>ไมล์</div></button>
+            <button style="margin-left: 20px;"><div>ฟุต</div></button>
+            <button style="margin-left: 20px;"><div>นิ้ว</div></button>
+        </div>
+    </div>
+    <div class="tabb1" style="border: #ffffff solid 5px; height: 870px; width: 1205px; margin-top: 10px; margin-left: 15px; display: flex;">
+        <a style="align-items: center; flex-direction: column; display: flex;">
+            <label style="font-size: 55px; margin-top: 250px;">ค่าที่ต้องการแปลง</label>
+            <label style="align-items: center; margin-top: 10px;">
+                <input placeholder="กรอกค่าที่นี่..." type="text" id="inputValue" style="margin: 10px; font-size: medium;">
+                <select id="fromUnit">
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="kelvin">Kelvin</option>
+                </select>
+                <select id="toUnit">
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="kelvin">Kelvin</option>
+                </select>
+                <button class="enter" id="convertButton" style="font-size: medium">=</button>
+            </label>
+            <label style="font-size: 55px; margin-top: 250px;">ค่าที่แปลงแล้ว</label>
+            <label style="align-items: center; margin-top: 10px;">
+                <input placeholder="ค่าที่แปลงแล้ว..." type="text" id="outputValue" style="margin: 10px; font-size: medium;" readonly>
+            </label>
+        </a>
+    </div>
+    </div>
+
+    <py-script>
+    def convert_temperature(value, from_unit, to_unit):
+        if from_unit == 'celsius':
+            if to_unit == 'fahrenheit':
+                return (value * 1.8) + 32
+            elif to_unit == 'kelvin':
+                return value + 273.15
+        elif from_unit == 'fahrenheit':
+            if to_unit == 'celsius':
+                return (value - 32) / 1.8
+            elif to_unit == 'kelvin':
+                return (value - 32) / 1.8 + 273.15
+        elif from_unit == 'kelvin':
+            if to_unit == 'celsius':
+                return value - 273.15
+            elif to_unit == 'fahrenheit':
+                return (value - 273.15) * 1.8 + 32
+
+    def convert(event):
+        input_value = float(Element('inputValue').element.value)
+        from_unit = Element('fromUnit').element.value
+        to_unit = Element('toUnit').element.value
+        converted_value = convert_temperature(input_value, from_unit, to_unit)
+        Element('outputValue').element.value = f"{converted_value:.4f}"
+
+    Element('convertButton').element.onclick = convert
+    </py-script>
+    </nav>
+</body>
+</html>
