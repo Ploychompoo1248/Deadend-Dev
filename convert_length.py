@@ -1,3 +1,14 @@
+value = getElementbyId
+"""set from unit"""
+def set_cen():
+        """centimeters"""
+        from_unit = "centimeters"
+        return from_unit
+def set_kilo():
+        """kilometers"""
+        from_unit = "kilometers"
+        return from_unit
+
 """convert_length"""
 def cen(value, to_unit):
     """convert cm to others"""
