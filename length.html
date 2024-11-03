@@ -175,9 +175,9 @@
                 elif to_unit == "maters" :
                     return(value/1000)
             elif from_unit == to_unit :
-                return value
+                return float(value)
             elif value == "0":
-                return 0.0000
+                return float(0.0000)
 
         def convert(event):
             value = float(Element('inputValue').element.value)
