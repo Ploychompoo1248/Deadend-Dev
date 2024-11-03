@@ -30,6 +30,11 @@
             font-weight: 300;
             font-style: normal;
         }
+        output{
+            font-family: "Kanit", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
         select{
             font-family: "Kanit", sans-serif;
             background-color: #638475; 
@@ -37,13 +42,23 @@
             border-radius: 5px; 
             font-size: medium;
             font-weight: 300;
-            height: 50px;
+            height: 40px;
             width: 186px;
             border: 0cm;
             text-align: center;
+            padding: 10px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
         option{
             background-color: #6f897d;
+        }
+        .equal {
+            width: 100px;
+            height: 20px;
+            background-color: #F6D0B1;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
     </style>
 <head>
@@ -98,9 +113,15 @@
                         <input placeholder="กรอกค่าที่นี่..." type="text" id = "inputValue" style="margin: 10px; font-size: medium;">
                         <button class="enter" id="convertButton" style="font-size: medium">=</button>
                     </label>
-                    <label style="font-size: 55px; margin-top: 50px;">ค่าที่แปลงแล้ว</label>
+                    <br>
+                    <label>
+                        <div class="equal"></div>
+                        <br>
+                        <div class="equal"></div>
+                    </label>
+                    <label style="font-size: 55px; margin-top: 150px;">ค่าที่แปลงแล้ว</label>
                     <label style="align-items: center; margin-top: 10px;">
-                        <input placeholder="ค่าที่แปลงแล้ว..." type="text" id="outputValue" style=" font-size: medium;"readonly>
+                        <output placeholder="ค่าที่แปลงแล้ว..." type="text" id="outputValue" style=" font-size: medium;"readonly>
                     </label>
                 </a>
             </div>

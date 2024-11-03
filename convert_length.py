@@ -1,4 +1,4 @@
-value = getElementbyId
+
 """set from unit"""
 def set_cen():
         """centimeters"""
