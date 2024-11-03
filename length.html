@@ -63,7 +63,7 @@
             <a href="tem.html"><button style="margin-left: 20px;"><div >อุณหภูมิ</div></button></a>
             <a href="length.html"><button style="margin-left: 20px;"><div >ความยาว</div></button></a>
             <a href="degree.html"><button style="margin-left: 20px;"><div >องศา</div></button></a>
-            <a href="index.html" style="margin-left: 20px; cursor: pointer;" href="" >
+            <a href="index.html" style="margin-left: 20px; cursor: pointer;" >
                 <img src="pic/IMG_3800.PNG" alt="logo" width="50 px" height="50 px">
             </a>
         </div>
@@ -100,7 +100,7 @@
                     </label>
                     <label style="font-size: 55px; margin-top: 50px;">ค่าที่แปลงแล้ว</label>
                     <label style="align-items: center; margin-top: 10px;">
-                        <input placeholder="ค่าที่แปลงแล้ว..." type="text" id="outputValue" style="margin: 10px; font-size: medium;"readonly>
+                        <input placeholder="ค่าที่แปลงแล้ว..." type="text" id="outputValue" style=" font-size: medium;"readonly>
                     </label>
                 </a>
             </div>
@@ -119,6 +119,8 @@
                     return(value/1000)
                 elif to_unit == "centimeters":
                     return(value*1000)
+                elif to_unit == 'meters':
+                    return value
             elif from_unit == "kilometers":
                 if to_unit == "inches":
                     return(value*39370.1)
@@ -130,6 +132,8 @@
                     return(value * 3280.84)
                 elif to_unit == "centimeters":
                     return(value*100000)
+                elif to_unit == 'kilometers':
+                    return value
             elif from_unit == "miles":
                 if to_unit == "inches":
                     return(value*63360)
@@ -141,6 +145,8 @@
                     return(value * 5280)
                 elif to_unit == "centimeters":
                     return(value*161030.59581321)
+                elif to_unit == 'miles':
+                    return value
             elif from_unit == "feet":
                 if to_unit == "inches":
                     return(value*12)
@@ -152,6 +158,8 @@
                     return(value/3280.83989501)
                 elif to_unit == "centimeters":
                     return(value*30.47999902)
+                elif to_unit == 'feet':
+                    return value
             elif from_unit == "inches":
                 if to_unit == "inches":
                     return(value*12)
@@ -163,6 +171,8 @@
                     return(value/3280.83989501)
                 elif to_unit == "centimeters":
                     return(value*30.47999902)
+                elif to_unit == 'inches':
+                    return value
             elif from_unit == "centimeters":
                 if to_unit == "feet":
                     return (value/30.47999902)
@@ -171,13 +181,13 @@
                 elif to_unit == "miles":
                     return(value/161030.59581321)
                 elif to_unit == "kilometers":
-                    return(value/100000)
-                elif to_unit == "maters" :
-                    return(value/1000)
-            elif from_unit == to_unit :
-                return float(value)
+                    return (value/100000)
+                elif to_unit == "meters":
+                    return (value/1000)
+                elif to_unit == 'centimeters':
+                    return value
             elif value == "0":
-                return float(0.0000)
+                return '0'
 
         def convert(event):
             value = float(Element('inputValue').element.value)
@@ -190,4 +200,4 @@
     </py-script>
     </nav>
 </body>
-</html>
+</html> 
