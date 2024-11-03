@@ -30,6 +30,21 @@
             font-weight: 300;
             font-style: normal;
         }
+        select{
+            font-family: "Kanit", sans-serif;
+            background-color: #638475; 
+            color: #D9D9D9;
+            border-radius: 5px; 
+            font-size: medium;
+            font-weight: 300;
+            height: 50px;
+            width: 186px;
+            border: 0cm;
+            text-align: center;
+        }
+        option{
+            background-color: #6f897d;
+        }
     </style>
 <head>
     <meta charset="UTF-8">
@@ -56,20 +71,24 @@
             <div class="tabb" style="border: #D9D9D9 solid 5px; height: 870px; width: 210px; margin-top: 10px; margin-left: 15px;">
                 <div class="tabb" style="border: #D9D9D9 solid 5px; height: 45px; width: 1430px; margin-left: auto; margin-right: auto; justify-content: space-around; flex-direction: column; ">
                     <p style="text-align: center;">จากหน่วย</p>
-                    <button onclick="set_cen()" style="margin: auto; margin-top: 10px;"><div >เซนติเมตร</div></button>
-                    <button onclick="set_meters()" style="margin: auto;margin-top: 10px;"><div>เมตร</div></button>
-                    <button onclick="set_kilo()" style="margin: auto;margin-top: 10px;"><div>กิโลเมตร</div></button>
-                    <button onclick="set_miles()" style="margin: auto;margin-top: 10px;"><div>ไมล์</div></button>
-                    <button onclick="set_feet()" style="margin: auto;margin-top: 10px;"><div>ฟุต</div></button>
-                    <button onclick="set_inches()" style="margin: auto;margin-top: 10px;"><div>นิ้ว</div></button>
+                    <select id="from_unit">
+                    <option value="centimeters"><button style="margin: auto; margin-top: 10px;"><div>เซนติเมตร</div></button></option>
+                    <option value="meters"><button style="margin: auto;margin-top: 10px;"><div>เมตร</div></button></option>
+                    <option value="kilometers"><button style="margin: auto;margin-top: 10px;"><div>กิโลเมตร</div></button></option>
+                    <option value="miles"><button style="margin: auto;margin-top: 10px;"><div>ไมล์</div></button></option>
+                    <option value="feet"><button style="margin: auto;margin-top: 10px;"><div>ฟุต</div></button></option>
+                    <option value="inches"><button style="margin: auto;margin-top: 10px;"><div>นิ้ว</div></button></option>
+                    </select>
                     <br>
                     <p style="text-align: center;">เป็นหน่วย</p>
-                    <button onclick="set_cen()" style="margin: auto; margin-top: 10px;"><div >เซนติเมตร</div></button>
-                    <button onclick="set_meters()" style="margin: auto;margin-top: 10px;"><div>เมตร</div></button>
-                    <button onclick="set_kilo()" style="margin: auto;margin-top: 10px;"><div>กิโลเมตร</div></button>
-                    <button onclick="set_miles()" style="margin: auto;margin-top: 10px;"><div>ไมล์</div></button>
-                    <button onclick="set_feet()" style="margin: auto;margin-top: 10px;"><div>ฟุต</div></button>
-                    <button onclick="set_inches()" style="margin: auto;margin-top: 10px;"><div>นิ้ว</div></button>
+                    <select id="to_unit">
+                        <option value="centimeters"><button style="margin: auto; margin-top: 10px;"><div>เซนติเมตร</div></button></option>
+                        <option value="meters"><button style="margin: auto;margin-top: 10px;"><div>เมตร</div></button></option>
+                        <option value="kilometers"><button style="margin: auto;margin-top: 10px;"><div>กิโลเมตร</div></button></option>
+                        <option value="miles"><button style="margin: auto;margin-top: 10px;"><div>ไมล์</div></button></option>
+                        <option value="feet"><button style="margin: auto;margin-top: 10px;"><div>ฟุต</div></button></option>
+                        <option value="inches"><button style="margin: auto;margin-top: 10px;"><div>นิ้ว</div></button></option>
+                    </select>
                 </div>
             </div>
             <div class="tabb1" style="border: #ffffff solid 5px; height: 870px; width: 1205px; margin-top: 10px; margin-left: 15px; display: flex;">
@@ -88,58 +107,6 @@
         </div>
     </nav>
     <py-script>
-    """set from unit"""
-    def set_cen():
-        """centimeters"""
-        from_unit = "centimeters"
-        return from_unit
-    def set_kilo():
-        """kilometers"""
-        from_unit = "kilometers"
-        return from_unit
-    def set_miles():
-        """miles"""
-        from_unit = "miles"
-        return from_unit
-    def set_meters():
-            """meters"""
-            from_unit = "meters"
-            return from_unit
-    def set_feet():
-        """feet"""
-        from_unit = "feet"
-        return from_unit
-    def set_inches():
-        """inches"""
-        from_unit = "inches"
-        return from_unit
-    
-    """set to unit"""
-    def to_cen():
-        """centimeters"""
-        to_unit = "centimeters"
-        return to_unit
-    def to_kilo():
-        """kilometers"""
-        to_unit = "kilometers"
-        return to_unit
-    def to_miles():
-        """miles"""
-        to_unit = "miles"
-        return to_unit
-    def to_meters():
-        """meters"""
-        to_unit = "meters"
-        return to_unit
-    def to_feet():
-        """feet"""
-        to_unit = "feet"
-        return to_unit
-    def to_inches():
-        """inches"""
-        to_unit = "inches"
-        return to_unit
-
     """convert_length"""
     def cen(value, to_unit):
         """convert cm to others"""
@@ -237,9 +204,12 @@
             return("0.0000")
 
     def convert(event):
-            input_value = float(Element('inputValue').element.value)
-            converted_value = main(input_value)
-            Element('outputValue').element.value = f"{converted_value:.4f}"
+        input_value = float(Element('inputValue').element.value)
+        from_unit = Element('from_unit').element.value
+        to_unit = Element('to_unit').element.value
+        converted_value = convert_temperature(input_value, from_unit, to_unit)
+        Element('outputValue').element.value = f"{converted_value:.4f}"
+
         Element('convertButton').element.onclick = convert
     </py-script>
 </body>
