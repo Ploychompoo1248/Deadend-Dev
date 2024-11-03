@@ -41,6 +41,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <nav>
         <div class="tabb" style="border: #D9D9D9 solid 5px; height: 45px; width: 1430px; margin-left: auto; margin-right: auto;">
             <a href="bmi.html"><button style="margin-left: 20px;"><div >คำนวณ BMI</div></button></a>
@@ -60,17 +61,31 @@
                 <a style="align-items: center; flex-direction: column; display: flex;">
                     <label style="font-size: 55px; margin-top: 250px;">ค่าที่ต้องการแปลง</label>
                     <label style="align-items: center; margin-top: 10px;">
-                        <input placeholder="พิมพ์ที่นี่..." type="text" style="margin: 10px; font-size: medium;">
-                        <button class="enter" onclick="alerttt()" style="font-size: medium">=</button>
+                        <input placeholder="พิมพ์ที่นี่..." type="text" id = "inputValue" style="margin: 10px; font-size: medium;">
+                        <button id="convertButton" class="enter" style="font-size: medium">=</button>
+                    </label>
+                    <label style="font-size: 55px; margin-top: 250px;">ค่าที่แปลงแล้ว</label>
+                    <label style="align-items: center; margin-top: 10px;">
+                        <input placeholder="ค่าที่แปลงแล้ว..." type="text" id="outputValue" style="margin: 10px; font-size: medium;" readonly>
                     </label>
                 </a>
             </div>
         </div>
-        <script>
-            function alerttt(){
-                alert("Please select degree or radian.")
-            }
-        </script>
+    <py-script>
+        def main(inputValue):
+            if inputValue == "0":
+                return 0.0000
+            else:               
+                return (inputValue*180)/3.14159           
+
+        def convert(event):
+            input_value = float(Element('inputValue').element.value)
+            converted_value = main(input_value)
+            Element('outputValue').element.value = f"{converted_value:.4f}"
+
+        Element('convertButton').element.onclick = convert
+    </py-script>
+    
     </nav>
 </body>
 </html>
